@@ -127,49 +127,70 @@ const AboutView: React.FC = () => {
 
   const leaders = [
     {
-      name: '[Founder Name]', role: 'Founder & Lead Coordinator', department: 'Executive Board',
-      qualifications: 'B.Sc. (in view) Electrical & Electronics Engineering', doings: 'Authored the 18-week dual track curriculum and founded the initiative.',
-      bio: 'Committed to bridging textbook theory with actual physical fabrication for EEE peers.', image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'
+      name: '[Founder Name]', 
+      role: 'Founder & Lead Coordinator', 
+      department: 'Executive Board',
+      qualifications: 'B.Sc. (in view) Electrical & Electronics Engineering', 
+      experience: '6+ Years Field Experience in Commercial Electrical Installation & Machine Winding.',
+      certificationLink: '#',
+      doings: 'Architected the 18-week dual-track curriculum, drafted the Master BOM, and founded the initiative.',
+      bio: 'Transitioned from hands-on artisan electrical work to formal EEE education. Committed to bridging textbook theory with actual physical fabrication for university peers.', 
+      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'
     },
     {
-      name: '[Co-Founder Name]', role: 'Co-Founder', department: 'Executive Board',
-      qualifications: 'B.Sc. (in view) EEE | Renewable Energy Systems', doings: 'Co-designed practical training modules and manages strategic project roadmaps.',
-      bio: 'Dedicated to decentralizing engineering education in Nigerian institutions.', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'
+      name: '[Co-Founder Name]', 
+      role: 'Co-Founder', 
+      department: 'Executive Board',
+      qualifications: 'B.Sc. (in view) EEE | Renewable Energy Systems', 
+      experience: '4 Years Practical Hardware Assembly & Micro-Grid Deployment.',
+      certificationLink: '#',
+      doings: 'Co-designed practical training modules and manages strategic project roadmaps.',
+      bio: 'Dedicated to decentralizing engineering education in Nigerian institutions by providing peer-led hardware access.', 
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'
     },
     {
-      name: '[Director Name]', role: 'Director of Operations', department: 'Operations & Strategy',
-      qualifications: 'Project Management Specialist', doings: 'Coordinates logistics, resource allocation, and lab space infrastructure.',
-      bio: 'Oversees operational standards and safety compliance across all divisions.', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80'
+      name: '[Director Name]', 
+      role: 'Director of Operations', 
+      department: 'Operations & Strategy',
+      qualifications: 'Project Management Specialist', 
+      experience: 'Certified Lab Safety & Logistics Coordinator.',
+      certificationLink: '#',
+      doings: 'Coordinates multi-cohort logistics, resource allocation, and lab space infrastructure.',
+      bio: 'Oversees operational standards, safety compliance, and execution timelines across all WattWork divisions.', 
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80'
     },
     {
-      name: '[Solar Head]', role: 'Solar Sector Tutor Head', department: 'Solar Infrastructure',
-      qualifications: 'Certified PV Installer', doings: 'Leads PV system sizing, inverter design, and live roof stringing.',
-      bio: 'Specializes in micro-grids, deep-cycle battery management, and PWM circuits.', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80'
+      name: '[Solar Head]', 
+      role: 'Solar Sector Tutor Head', 
+      department: 'Solar Infrastructure',
+      qualifications: 'B.Sc. (in view) EEE | Certified PV Installer', 
+      experience: '5+ Years in Commercial Solar Stringing & Off-Grid Battery Sizing.',
+      certificationLink: '#',
+      doings: 'Leads PV system sizing, inverter design stages, and live roof stringing modules.',
+      bio: 'Specializes in solar micro-grids, deep-cycle battery management, and oscillator PWM circuits.', 
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80'
     },
     {
-      name: '[Asst. Solar Head]', role: 'Assistant Solar Head', department: 'Solar Infrastructure',
-      qualifications: 'CleanTech Advocate', doings: 'Supervises bench tests and battery bank safety audits.',
-      bio: 'Provides hands-on guidance for solar array and inverter assembly.', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80'
+      name: '[Electrical Head]', 
+      role: 'Electrical Sector Tutor Head', 
+      department: 'Electrical Installation',
+      qualifications: 'B.Sc. (in view) EEE | IEE Regs Certified', 
+      experience: '7 Years Artisan Experience: Conduit Layouts & Motor Disassembly.',
+      certificationLink: '#',
+      doings: 'Oversees domestic wiring layouts, transformer winding calculations, and armature recoiling.',
+      bio: 'Hardware engineer with hands-on mastery in hand-wound transformers and distribution board installations.', 
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80'
     },
     {
-      name: '[Electrical Head]', role: 'Electrical Sector Tutor Head', department: 'Electrical Installation',
-      qualifications: 'Machine Winding Specialist', doings: 'Oversees domestic wiring layouts and armature recoiling.',
-      bio: 'Hardware engineer with hands-on mastery in hand-wound transformers.', image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80'
-    },
-    {
-      name: '[Asst. Electrical Head]', role: 'Assistant Electrical Head', department: 'Electrical Installation',
-      qualifications: 'Circuit Protection Technician', doings: 'Guides students through conduit piping and megger testing.',
-      bio: 'Focuses on rigorous electrical safety protocols and step-by-step execution.', image: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=400&q=80'
-    },
-    {
-      name: '[CAD Head]', role: 'CAD Sector Head', department: 'Engineering Design',
-      qualifications: 'AutoCAD Electrical Certified', doings: 'Leads technical drafting of conduit plans and schematics.',
-      bio: 'Ensures all electrical layouts meet global engineering standards.', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80'
-    },
-    {
-      name: '[Asst. CAD Head]', role: 'Assistant CAD Head', department: 'Engineering Design',
-      qualifications: 'PCB Layout Designer', doings: 'Assists with PCB routing for inverter oscillator boards.',
-      bio: 'Translates breadboarded hardware circuits into manufacturable schematics.', image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80'
+      name: '[CAD Head]', 
+      role: 'CAD Sector Head', 
+      department: 'Engineering Design',
+      qualifications: 'AutoCAD Electrical & SolidWorks Certified', 
+      experience: '3 Years Industrial Schematics & PCB Layout Design.',
+      certificationLink: '#',
+      doings: 'Leads technical drafting of conduit plans and mechanical inverter enclosures.',
+      bio: 'Ensures all electrical layouts and circuit diagrams meet global engineering standards.', 
+      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80'
     }
   ];
 
@@ -215,34 +236,58 @@ const AboutView: React.FC = () => {
         </p>
       </div>
 
-      {/* Leadership Section */}
+      {/* 100% Width Leadership Section */}
       <div className="space-y-8">
         <div className="text-center">
           <h2 className="text-2xl sm:text-3xl font-black text-white">Executive Board & Sector Heads</h2>
           <p className="text-slate-400 text-sm mt-1">Our decentralized technical body driving hands-on execution.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-col gap-6">
           {leaders.map((leader, idx) => (
-            <div key={idx} className="bg-slate-800/80 border border-slate-700 hover:border-amber-500/50 transition-colors rounded-xl overflow-hidden flex flex-col p-6 space-y-4 shadow-lg shadow-black/20">
-              <div className="flex items-center gap-4">
-                <img src={leader.image} alt={leader.name} className="w-14 h-14 rounded-full object-cover border-2 border-amber-500" />
-                <div>
-                  <h3 className="text-base font-bold text-white">{leader.name}</h3>
-                  <p className="text-[10px] font-bold text-amber-500 uppercase tracking-wide">{leader.role}</p>
-                  <span className="text-[11px] text-slate-400">{leader.department}</span>
-                </div>
-              </div>
-              <p className="text-slate-300 text-xs italic flex-1">"{leader.bio}"</p>
+            <div key={idx} className="bg-slate-800/80 border border-slate-700 hover:border-amber-500/50 transition-colors rounded-xl overflow-hidden flex flex-col md:flex-row shadow-lg shadow-black/20 w-full">
               
-              <div className="space-y-3 pt-4 border-t border-slate-700/60">
-                <div className="flex items-start gap-2 text-xs text-slate-300">
-                  <Award className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                  <div><span className="font-bold text-slate-200">Qualifications: </span>{leader.qualifications}</div>
-                </div>
-                <div className="flex items-start gap-2 text-xs text-slate-300">
-                  <Briefcase className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                  <div><span className="font-bold text-slate-200">Doings: </span>{leader.doings}</div>
+              {/* Left Column: Image & Basic Info */}
+              <div className="p-6 md:w-1/3 border-b md:border-b-0 md:border-r border-slate-700/60 flex flex-col items-center md:items-start text-center md:text-left bg-slate-900/40">
+                <img src={leader.image} alt={leader.name} className="w-24 h-24 rounded-full object-cover border-2 border-amber-500 mb-4 shadow-md" />
+                <h3 className="text-xl font-black text-white">{leader.name}</h3>
+                <p className="text-xs font-bold text-amber-500 uppercase tracking-wide mt-1">{leader.role}</p>
+                <span className="text-[11px] font-mono text-slate-400 mt-1 bg-slate-800 px-2 py-0.5 rounded">{leader.department}</span>
+                
+                <a href={leader.certificationLink} className="mt-4 flex items-center gap-1.5 text-xs text-slate-300 hover:text-amber-400 transition-colors border border-slate-700 rounded-lg px-3 py-1.5 w-full justify-center md:justify-start">
+                  <UserCheck className="w-4 h-4 text-amber-500" />
+                  View Certifications & Portfolio
+                </a>
+              </div>
+              
+              {/* Right Column: Detailed Bio & Experience */}
+              <div className="p-6 md:w-2/3 flex flex-col justify-center space-y-4">
+                <p className="text-slate-200 text-sm italic leading-relaxed border-l-4 border-amber-500 pl-4">"{leader.bio}"</p>
+                
+                <div className="space-y-3 pt-2">
+                  <div className="flex items-start gap-3 text-sm text-slate-300">
+                    <Award className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold text-slate-200 block">Academic Profile:</span>
+                      {leader.qualifications}
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3 text-sm text-slate-300">
+                    <ShieldCheck className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold text-slate-200 block">Field / Artisan Experience:</span>
+                      {leader.experience}
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 text-sm text-slate-300">
+                    <Briefcase className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold text-slate-200 block">WattWork Direct Impact:</span>
+                      {leader.doings}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -252,7 +297,6 @@ const AboutView: React.FC = () => {
     </div>
   );
 };
-
 /* =========================================================
    3. CURRICULUM VIEW
 ========================================================= */
