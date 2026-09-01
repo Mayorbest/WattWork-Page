@@ -12,6 +12,13 @@ import {
   Briefcase, 
   UserCheck 
 } from 'lucide-react';
+import Akin from './assets/Akintunde.jpeg';
+import Abdul from './assets/Olajide.jpeg';
+import mayor from './assets/Mayor1.png';
+import Temple from './assets/Havoc.png';
+import McD from './assets/McD.jpeg';
+import Abd from './assets/Abd-R.jpeg';
+import Mub from './assets/Mubby.jpeg';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<string>('home');
@@ -127,29 +134,29 @@ const AboutView: React.FC = () => {
 
   const leaders = [
     {
-      name: '[Founder Name]', 
+      name: 'Nzeakor Temple Chukwuebuka', 
       role: 'Founder & Lead Coordinator', 
       department: 'Executive Board',
-      qualifications: 'B.Sc. (in view) Electrical & Electronics Engineering', 
-      experience: '6+ Years Field Experience in Commercial Electrical Installation & Machine Winding.',
+      qualifications: 'B.Sc. (in view) Electrical & Electronics Engineering | IEEE Reg Certified', 
+      experience: '3+ Years Field Experience in Commercial Electrical Installation & Leadership roles (Course Rep for SEES 29, Millelium Fellowship Ambassador class of 2026)',
       certificationLink: '#',
-      doings: 'Architected the 18-week dual-track curriculum, drafted the Master BOM, and founded the initiative.',
-      bio: 'Transitioned from hands-on artisan electrical work to formal EEE education. Committed to bridging textbook theory with actual physical fabrication for university peers.', 
-      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'
+      doings: 'Founded the initiative. Manages strategic project roadmaps.',
+      bio: 'Obesses with leadership and providing scalable solution to engineering problem', 
+      image: Temple
     },
     {
-      name: '[Co-Founder Name]', 
-      role: 'Co-Founder', 
+      name: "Ayeni Mayowa Boluwatife", 
+      role: 'Co-Founder, Chief Supervisor & Innovative Head', 
       department: 'Executive Board',
-      qualifications: 'B.Sc. (in view) EEE | Renewable Energy Systems', 
-      experience: '4 Years Practical Hardware Assembly & Micro-Grid Deployment.',
+      qualifications: 'B.Sc. (in view) EEE | Renewable Energy Systems | IEEE Reg Certified', 
+      experience: '4 Years Practical Hardware Assembly & Micro-Grid Deployment | 7+ years in Electrical Installation, Repairs and Maintenance |.',
       certificationLink: '#',
-      doings: 'Co-designed practical training modules and manages strategic project roadmaps.',
-      bio: 'Dedicated to decentralizing engineering education in Nigerian institutions by providing peer-led hardware access.', 
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'
+      doings: 'Architected the 18-week dual-track curriculum, drafted the Master BOM, Designed practical training modules',
+      bio: 'Transitioned from hands-on artisan electrical work to formal EEE education. Committed to bridging textbook theory with actual physical fabrication for university peers. Dedicated to decentralizing engineering education in Nigerian institutions by providing peer-led hardware access.', 
+      image: mayor
     },
     {
-      name: '[Director Name]', 
+      name: 'Olajide Abdullah', 
       role: 'Director of Operations', 
       department: 'Operations & Strategy',
       qualifications: 'Project Management Specialist', 
@@ -157,10 +164,10 @@ const AboutView: React.FC = () => {
       certificationLink: '#',
       doings: 'Coordinates multi-cohort logistics, resource allocation, and lab space infrastructure.',
       bio: 'Oversees operational standards, safety compliance, and execution timelines across all WattWork divisions.', 
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80'
+      image: Abdul
     },
     {
-      name: '[Solar Head]', 
+      name: 'Lawal Mubarak Omogbolahan', 
       role: 'Solar Sector Tutor Head', 
       department: 'Solar Infrastructure',
       qualifications: 'B.Sc. (in view) EEE | Certified PV Installer', 
@@ -168,21 +175,21 @@ const AboutView: React.FC = () => {
       certificationLink: '#',
       doings: 'Leads PV system sizing, inverter design stages, and live roof stringing modules.',
       bio: 'Specializes in solar micro-grids, deep-cycle battery management, and oscillator PWM circuits.', 
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80'
+      image: Mub
     },
     {
-      name: '[Electrical Head]', 
+      name: 'Tijani Akintunde Uthman', 
       role: 'Electrical Sector Tutor Head', 
       department: 'Electrical Installation',
-      qualifications: 'B.Sc. (in view) EEE | IEE Regs Certified', 
-      experience: '7 Years Artisan Experience: Conduit Layouts & Motor Disassembly.',
+      qualifications: 'B.Sc. (in view) EEE | Certified EE artisan', 
+      experience: '4 Years Artisan Experience: Conduit Layouts & Motor Disassembly.',
       certificationLink: '#',
       doings: 'Oversees domestic wiring layouts, transformer winding calculations, and armature recoiling.',
       bio: 'Hardware engineer with hands-on mastery in hand-wound transformers and distribution board installations.', 
-      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80'
+      image: Akin
     },
     {
-      name: '[CAD Head]', 
+      name: 'Olowu McDaniels', 
       role: 'CAD Sector Head', 
       department: 'Engineering Design',
       qualifications: 'AutoCAD Electrical & SolidWorks Certified', 
@@ -190,7 +197,18 @@ const AboutView: React.FC = () => {
       certificationLink: '#',
       doings: 'Leads technical drafting of conduit plans and mechanical inverter enclosures.',
       bio: 'Ensures all electrical layouts and circuit diagrams meet global engineering standards.', 
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80'
+      image: McD
+    },
+    {
+      name: 'AbdulRahmon', 
+      role: 'Assistant Electrical Installation', 
+      department: 'Electrical Installation',
+      qualifications: 'Certified Electrical Artisan', 
+      experience: '5+ Years Experience in Electrical Installation | 4+ years Experience in Machine Winding',
+      certificationLink: '#',
+      doings: 'Leads Electrical Installation teaching logistics and Inspects students work',
+      bio: 'Ensures all settings for Electrical installation is available and smooth training session', 
+      image: Abd
     }
   ];
 
