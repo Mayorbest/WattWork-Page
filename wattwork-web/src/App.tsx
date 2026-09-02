@@ -55,7 +55,7 @@ const HomeView: React.FC<{ setActiveTab: (tab: string) => void }> = ({ setActive
           Empowering Nigeria's Next Generation of <span className="text-amber-500">Hardware Engineers</span>
         </h1>
         <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-          Bridging the gap between theory and practical application in Electrical & Solar Engineering. Building 12V–220V transformers, recoiling DC armatures, and designing custom inverters from scratch.
+          Bridging the gap between theory and practical application in Electrical & Solar Engineering. Building 12V–220V transformers, and designing custom inverters from scratch.
         </p>
         <div className="flex flex-wrap justify-center gap-4 pt-2">
           <button 
@@ -74,7 +74,7 @@ const HomeView: React.FC<{ setActiveTab: (tab: string) => void }> = ({ setActive
             }}
             className="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 px-6 py-3 rounded-xl font-bold text-sm transition-all cursor-pointer"
           >
-            Explore 18-Week Scheme
+            Explore 9-Weeks Scheme For the simultaneous tranning
           </button>
         </div>
       </div>
@@ -321,7 +321,7 @@ const CurriculumView: React.FC = () => {
   return (
     <div className="space-y-12 py-6 animate-in fade-in duration-500">
       <div className="text-center max-w-2xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-black text-white">18-Week Scheme of Work</h1>
+        <h1 className="text-3xl sm:text-4xl font-black text-white">9-Week Scheme of Work (Separated)</h1>
         <p className="text-slate-400 text-sm mt-2">
           High-level curriculum overview validating our technical rigor.
         </p>
@@ -446,7 +446,7 @@ const ContactView: React.FC = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          access_key: 'YOUR_ACCESS_KEY_HERE', 
+          access_key: 'bf6e62a2-485d-47e7-ae23-c7a2714750aa', 
           name: formData.name,
           email: formData.email,
           message: formData.message,
