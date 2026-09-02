@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Footer } from './footer';
 import { NavBar } from './navBar';
 import { 
   Zap, 
@@ -35,9 +36,7 @@ export default function App() {
         {activeTab === 'contact' && <ContactView />}
       </main>
 
-      <footer className="bg-slate-950 border-t border-slate-800 text-slate-400 py-8 px-4 text-center text-sm">
-        <p>&copy; {new Date().getFullYear()} WattWork Initiative. Bridging the theory-to-practice gap in Nigerian engineering.</p>
-      </footer>
+      <Footer />      
     </div>
   );
 }
@@ -432,9 +431,46 @@ const SponsorshipView: React.FC = () => {
 };
 
 /* =========================================================
-   5. CONTACT VIEW
+   5. CONTACT VIEW (Live Email Forwarding)
 ========================================================= */
 const ContactView: React.FC = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+ const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('submitting');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: 'YOUR_ACCESS_KEY_HERE', 
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `New WattWork Inquiry from ${formData.name}`,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        
+        // Revert the button back to default after 4 seconds
+        setTimeout(() => {
+          setStatus('idle');
+        }, 4000);
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  };
+
   return (
     <div className="space-y-10 py-6 max-w-4xl mx-auto animate-in fade-in duration-500">
       <div className="text-center space-y-3">
@@ -451,7 +487,7 @@ const ContactView: React.FC = () => {
           </div>
           <div>
             <h3 className="font-bold text-white text-lg">Official Email</h3>
-            <p className="text-sm text-slate-400 mt-1">partnerships@wattwork.org</p>
+            <p className="text-sm text-slate-400 mt-1">wattwork.partner@gmail.com</p>
           </div>
         </div>
         <div className="bg-slate-800/60 border border-slate-700 p-8 rounded-2xl flex flex-col items-center text-center space-y-4 hover:border-amber-500/50 transition-colors">
@@ -467,23 +503,67 @@ const ContactView: React.FC = () => {
 
       <div className="bg-slate-800/40 border border-slate-700 p-8 rounded-2xl">
         <h3 className="font-bold text-white text-xl mb-6">Send an Inquiry</h3>
-        <form onSubmit={(e) => e.preventDefault()} className="space-y-5 text-sm">
+        
+        {status === 'success' && (
+          <div className="mb-6 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400 text-sm font-semibold text-center">
+            Thank you! Your message has been sent to the WattWork team. We will respond shortly.
+          </div>
+        )}
+
+        {status === 'error' && (
+          <div className="mb-6 p-4 bg-rose-500/10 border border-rose-500/30 rounded-xl text-rose-400 text-sm font-semibold text-center">
+            Failed to send message. Please reach out directly to wattwork.partner@gmail.com.
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-5 text-sm">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div>
               <label className="block text-xs font-bold text-slate-400 uppercase tracking-wide mb-2">Organization / Name</label>
-              <input type="text" placeholder="e.g. Coleman Wires" className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all" />
+              <input 
+                type="text" 
+                required
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                placeholder="e.g. Coleman Wires" 
+                className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all" 
+              />
             </div>
             <div>
               <label className="block text-xs font-bold text-slate-400 uppercase tracking-wide mb-2">Email Address</label>
-              <input type="email" placeholder="contact@company.com" className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all" />
+              <input 
+                type="email" 
+                required
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                placeholder="contact@company.com" 
+                className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all" 
+              />
             </div>
           </div>
           <div>
             <label className="block text-xs font-bold text-slate-400 uppercase tracking-wide mb-2">Message</label>
-            <textarea rows={4} placeholder="Tell us how you would like to partner with WattWork..." className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all"></textarea>
+            <textarea 
+              rows={4} 
+              required
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              placeholder="Tell us how you would like to partner with WattWork..." 
+              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all"
+            ></textarea>
           </div>
-          <button type="submit" className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-4 rounded-xl transition-all shadow-lg shadow-amber-500/20 cursor-pointer text-base">
-            Send Message
+          <button 
+            type="submit" 
+            disabled={status === 'submitting' || status === 'success'}
+            className={`w-full font-black py-4 rounded-xl transition-all shadow-lg cursor-pointer text-base disabled:opacity-90 ${
+              status === 'success'
+                ? 'bg-emerald-500 text-white shadow-emerald-500/20'
+                : 'bg-amber-500 hover:bg-amber-400 disabled:bg-amber-500/50 text-slate-950 shadow-amber-500/20'
+            }`}
+          >
+            {status === 'submitting' && 'Sending Message...'}
+            {status === 'success' && 'Message Sent Successfully ✓'}
+            {(status === 'idle' || status === 'error') && 'Send Message'}
           </button>
         </form>
       </div>
