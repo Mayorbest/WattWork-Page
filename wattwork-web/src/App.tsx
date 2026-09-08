@@ -372,8 +372,11 @@ const CurriculumView: React.FC = () => {
    4. SPONSORSHIP VIEW
 ========================================================= */
 const SponsorshipView: React.FC = () => {
+  // State to control the pop-up modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <div className="space-y-12 py-6 animate-in fade-in duration-500">
+    <div className="space-y-12 py-6 animate-in fade-in duration-500 relative">
       <div className="text-center max-w-2xl mx-auto space-y-4">
         <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight">Partner With WattWork</h1>
         <p className="text-slate-300 text-base leading-relaxed">
@@ -393,39 +396,109 @@ const SponsorshipView: React.FC = () => {
             </p>
           </div>
           <div className="bg-slate-900/60 p-6 rounded-xl border border-slate-800">
-            <h3 className="font-bold text-amber-500 text-lg mb-2">Digital Brand Visibility</h3>
+            <h3 className="font-bold text-amber-500 text-lg mb-2">Maximum Brand Visibility</h3>
             <p className="text-sm text-slate-300 leading-relaxed">
-              Extensive digital campaigns, corporate logo placement on lab coats, workshop banners, and recognition across our technical hardware showcases.
+              Extensive digital campaigns, corporate logo placement on official WattWork certificates, branded apparel, and recognition across our technical hardware showcases.
             </p>
           </div>
         </div>
       </div>
 
       <div className="space-y-6">
-        <h2 className="text-2xl font-bold text-white px-2">Sponsorship Tiers</h2>
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center px-2 gap-4">
+          <h2 className="text-2xl font-bold text-white">Sponsorship Tiers</h2>
+          
+          {/* THE NEW BUTTON */}
+          <button 
+            onClick={() => setIsModalOpen(true)}
+            className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2.5 rounded-lg text-sm transition shadow-lg shadow-amber-500/20"
+          >
+            Make a Direct Transfer
+          </button>
+        </div>
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-slate-800/60 border border-amber-500/50 p-6 rounded-xl shadow-lg shadow-amber-500/5 flex flex-col gap-2">
-            <span className="text-xs font-black text-amber-400 uppercase tracking-widest">Platinum</span>
+          {/* Platinum Tier */}
+          <div className="bg-slate-800/60 border border-amber-500 p-6 rounded-xl shadow-lg shadow-amber-500/10 flex flex-col gap-2 relative overflow-hidden">
+            <div className="absolute top-0 right-0 bg-amber-500 text-slate-900 text-[10px] font-bold px-2 py-1 rounded-bl-lg">TITLE</div>
+            <span className="text-xs font-black text-amber-400 uppercase tracking-widest mt-2">Platinum</span>
             <div className="text-2xl font-black text-white">2,000,000 ₦</div>
-            <p className="text-xs text-slate-400 mt-2">Title partner branding on lab coats, banners, and VIP talent recruitment access.</p>
+            <p className="text-xs text-slate-300 mt-2 font-semibold border-b border-slate-700 pb-2">Certificate Visibility</p>
+            <p className="text-[11px] text-slate-400">Corporate logo printed directly on all issued graduation certificates. Ultimate, VIP access to the intern pipeline and a speaking slot at launch.</p>
           </div>
-          <div className="bg-slate-800/60 border border-slate-700 p-6 rounded-xl flex flex-col gap-2">
-            <span className="text-xs font-black text-slate-300 uppercase tracking-widest">Gold</span>
+
+          {/* Diamond Tier */}
+          <div className="bg-slate-800/60 border border-cyan-500/50 p-6 rounded-xl shadow-lg shadow-cyan-500/5 flex flex-col gap-2">
+            <span className="text-xs font-black text-cyan-400 uppercase tracking-widest">Diamond</span>
             <div className="text-2xl font-black text-white">1,000,000 ₦</div>
-            <p className="text-xs text-slate-400 mt-2">Prominent logo placement on rigs, social jams, and workshop tools.</p>
+            <p className="text-xs text-slate-300 mt-2 font-semibold border-b border-slate-700 pb-2">Apparel Branding</p>
+            <p className="text-[11px] text-slate-400">Prominent logo featured on official WattWork branded polos worn by all students and tutors. Priority talent access and workshop banners.</p>
           </div>
-          <div className="bg-slate-800/60 border border-slate-700 p-6 rounded-xl flex flex-col gap-2">
-            <span className="text-xs font-black text-slate-400 uppercase tracking-widest">Silver</span>
+
+          {/* Gold Tier */}
+          <div className="bg-slate-800/60 border border-yellow-600/50 p-6 rounded-xl flex flex-col gap-2">
+            <span className="text-xs font-black text-yellow-500 uppercase tracking-widest">Gold</span>
             <div className="text-2xl font-black text-white">500,000 ₦</div>
-            <p className="text-xs text-slate-400 mt-2">Logo display on official web platforms and cohort releases.</p>
+            <p className="text-xs text-slate-300 mt-2 font-semibold border-b border-slate-700 pb-2">Digital & Equipment</p>
+            <p className="text-[11px] text-slate-400">Steady tags on all WattWork social media handles (LinkedIn, X, IG). Logo stickers on specific solar testing rigs and workstations.</p>
           </div>
-          <div className="bg-slate-800/60 border border-slate-700 p-6 rounded-xl flex flex-col gap-2">
-            <span className="text-xs font-black text-slate-400 uppercase tracking-widest">In-Kind</span>
+
+          {/* Silver / In-Kind Tier */}
+          <div className="bg-slate-800/60 border border-slate-500/50 p-6 rounded-xl flex flex-col gap-2">
+            <span className="text-xs font-black text-slate-300 uppercase tracking-widest">Silver / In-Kind</span>
             <div className="text-2xl font-black text-white">Materials</div>
-            <p className="text-xs text-slate-400 mt-2">Direct component donations (copper wires, batteries, multimeters).</p>
+            <p className="text-xs text-slate-300 mt-2 font-semibold border-b border-slate-700 pb-2">Component Support</p>
+            <p className="text-[11px] text-slate-400">Direct donation of enameled copper wires, batteries, or multimeters. Dedicated social media "Thank You" posts and general intern access.</p>
           </div>
         </div>
       </div>
+
+      {/* THE MODAL POP-UP */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+          <div className="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-md p-6 sm:p-8 shadow-2xl relative animate-in zoom-in-95 duration-200">
+            
+            <button 
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 rounded-full p-1.5 transition"
+            >
+              ✕
+            </button>
+
+            <h3 className="text-2xl font-black text-white mb-2">Direct Corporate Transfer</h3>
+            <p className="text-sm text-slate-400 mb-6">Support WattWork's mission instantly via bank transfer.</p>
+
+            <div className="bg-slate-800/50 rounded-xl p-5 space-y-4 border border-slate-700">
+              <div>
+                <span className="block text-xs font-bold text-slate-500 uppercase tracking-wider">Bank Name</span>
+                <span className="block text-lg font-bold text-white">United Banks For Africa (UBA)</span>
+              </div>
+              <div>
+                <span className="block text-xs font-bold text-slate-500 uppercase tracking-wider">Account Name</span>
+                <span className="block text-lg font-bold text-white">Mayowa Boluwatife Ayeni</span>
+              </div>
+              <div>
+                <span className="block text-xs font-bold text-slate-500 uppercase tracking-wider">Account Number</span>
+                <span className="block text-2xl font-black text-amber-500 tracking-widest">2349969161</span>
+              </div>
+            </div>
+
+            <div className="mt-6 bg-amber-500/10 border-l-4 border-amber-500 p-4 rounded-r-lg">
+              <p className="text-xs text-amber-400 font-medium leading-relaxed">
+                <strong className="text-amber-500 uppercase block mb-1">Critical Instruction:</strong>
+                Please include your <span className="text-white font-bold">Official Email Address</span> in the transaction narration/description so we can immediately contact you to process your sponsorship ROI.
+              </p>
+            </div>
+
+            <button 
+              onClick={() => setIsModalOpen(false)}
+              className="w-full mt-6 bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 rounded-xl transition"
+            >
+              Close Window
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
