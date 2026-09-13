@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
             <a href="#" aria-label="LinkedIn" className="bg-slate-900 p-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-amber-500 transition-all shadow-md">
               <FaLinkedin className="w-5 h-5" />
             </a>
-            <a href="#" aria-label="X / Twitter" className="bg-slate-900 p-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-amber-500 transition-all shadow-md">
+            <a href="https://x.com/WattWork6x" aria-label="X / Twitter" className="bg-slate-900 p-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-amber-500 transition-all shadow-md">
               <FaXTwitter className="w-5 h-5" />
             </a>
             <a href="#" aria-label="Facebook" className="bg-slate-900 p-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-amber-500 transition-all shadow-md">
